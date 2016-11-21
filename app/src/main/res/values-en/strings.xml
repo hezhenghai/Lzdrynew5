@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Ion-Introduction Machine</string>
+
+    <string name="this_function_to_develop">This function is developing...</string>
+
+    <string name="activity_guide_close">Close</string>
+
+    <string name="activity_language_choice_english">English （英语）</string>
+    <string name="activity_language_choice_chinese">Chinese （中文）</string>
+    <string name="activity_language_choice_ok">Ok （确定）</string>
+
+    <string name="activity_login_login">Login</string>
+    <string name="activity_login_username">User Name</string>
+    <string name="activity_login_password">Password</string>
+    <string name="activity_login_use_third_account_login">Use a third party account to login</string>
+    <string name="activity_login_customers_booking">Customer Reservation</string>
+    <string name="activity_login_language_choice">Language Selection</string>
+
+    <string name="activity_operation_remaining_time">Remaining Time</string>
+    <string name="activity_operation_anode">Positive Pole</string>
+    <string name="activity_operation_cathode">Negative Pole</string>
+    <string name="activity_operation_power">Energy</string>
+    <string name="activity_operation_time">Time</string>
+    <string name="activity_operation_low">Low</string>
+    <string name="activity_operation_high">High</string>
+    <string name="activity_operation_start">Start</string>
+    <string name="activity_operation_stop">Stop</string>
+    <string name="activity_operation_operation_records">Operation Records</string>
+
+    <string name="activity_verification_code_input_verification_code">Please enter verification code</string>
+    <string name="activity_verification_code_ok">Ok</string>
+    <string name="activity_verification_code_you_can">You can </string>
+    <string name="activity_verification_code_scan_qr_code">Scan QR code </string>
+
+    <string name="dialog_setting_voice">Voice</string>
+    <string name="dialog_setting_brightness">Brightness</string>
+
+    <string name="dialog_upgrade_version_update">Version Update</string>
+    <string name="dialog_upgrade_version_update_tips">New version is available, please update in time.</string>
+    <string name="dialog_upgrade_update_now">Update immediately</string>
+
+    <string name="dialog_version_copyright">Copyright 2016 DJM</string>
+    <string name="dialog_version_serial_number">Serial Number：81800023</string>
+    <string name="dialog_version_bootloader">Bootloader：1.00</string>
+    <string name="dialog_version_recommend">Recommend：1.00</string>
+
+    <string name="dialog_wifi_network_setup_prompts">Network Setting Tips</string>
+    <string name="dialog_wifi_network_setup_tips">Network unavailable, please check the setting?</string>
+    <string name="dialog_wifi_cancel">Cancel</string>
+    <string name="dialog_wifi_setting">Setting</string>
+
+    <string name="login_activity_user_name_cannot_be_empty">Please enter username</string>
+    <string name="login_activity_password_cannot_be_empty">Please enter password</string>
+    <string name="login_activity_user_name_does_not_exist">Invalid username</string>
+    <string name="login_activity_password_does_not_exist">Wrong password</string>
+
+    <string name="operation_activity_remaining_time_insufficient">The remaining time is less than 15min, please recharge.</string>
+    <string name="operation_activity_power_or_time_is_0">No energy value or time, please set!</string>
+
+
+    <string name="verification_code_activity_verification_code_cannot_be_empty">Please enter Verification!</string>
+    <string name="verification_code_activity_verification_code_error">Wrong verification!</string>
+
+
+</resources>

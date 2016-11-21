@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">离子导入仪</string>
+
+    <string name="this_function_to_develop">此功能待开发...</string>
+
+    <string name="activity_guide_close">关闭</string>
+
+    <string name="activity_language_choice_english">English （英语）</string>
+    <string name="activity_language_choice_chinese">Chinese （中文）</string>
+    <string name="activity_language_choice_ok">Ok （确定）</string>
+
+    <string name="activity_login_login">登录</string>
+    <string name="activity_login_username">用户名</string>
+    <string name="activity_login_password">密码</string>
+    <string name="activity_login_use_third_account_login">使用第三方账号登录</string>
+    <string name="activity_login_customers_booking">客户预约</string>
+    <string name="activity_login_language_choice">语言选择</string>
+
+    <string name="activity_operation_remaining_time">剩余时间</string>
+    <string name="activity_operation_anode">正极</string>
+    <string name="activity_operation_cathode">负极</string>
+    <string name="activity_operation_power">能量</string>
+    <string name="activity_operation_time">时间</string>
+    <string name="activity_operation_low">低</string>
+    <string name="activity_operation_high">高</string>
+    <string name="activity_operation_start">开始</string>
+    <string name="activity_operation_stop">暂停</string>
+    <string name="activity_operation_operation_records">操作记录</string>
+
+    <string name="activity_verification_code_input_verification_code">请输入验证码</string>
+    <string name="activity_verification_code_ok">确定</string>
+    <string name="activity_verification_code_you_can">您可以</string>
+    <string name="activity_verification_code_scan_qr_code">扫描二维码</string>
+
+    <string name="dialog_setting_voice">声音</string>
+    <string name="dialog_setting_brightness">亮度</string>
+
+    <string name="dialog_upgrade_version_update">版本升级</string>
+    <string name="dialog_upgrade_version_update_tips">检测到最新版本，请及时更新。</string>
+    <string name="dialog_upgrade_update_now">立即更新</string>
+
+    <string name="dialog_version_copyright">版权 2016 DJM</string>
+    <string name="dialog_version_serial_number">序号：81800023</string>
+    <string name="dialog_version_bootloader">引导装载程序：1.00</string>
+    <string name="dialog_version_recommend">应用推荐：1.00</string>
+
+    <string name="dialog_wifi_network_setup_prompts">网络设置提示</string>
+    <string name="dialog_wifi_network_setup_tips">网络连接不可用，是否进行设置?</string>
+    <string name="dialog_wifi_cancel">取消</string>
+    <string name="dialog_wifi_setting">设置</string>
+
+    <string name="login_activity_user_name_cannot_be_empty">用户名不能为空</string>
+    <string name="login_activity_password_cannot_be_empty">密码不能为空</string>
+    <string name="login_activity_user_name_does_not_exist">该用户名不存在</string>
+    <string name="login_activity_password_does_not_exist">密码错误</string>
+
+    <string name="operation_activity_remaining_time_insufficient">剩余时间已不足15分钟，请及时充值！</string>
+    <string name="operation_activity_power_or_time_is_0">能量或时间为0，请设置！</string>
+
+
+    <string name="verification_code_activity_verification_code_cannot_be_empty">验证码不能为空！</string>
+    <string name="verification_code_activity_verification_code_error">验证码错误！</string>
+
+
+
+
+
+</resources>

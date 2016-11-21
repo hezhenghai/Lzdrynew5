@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <include layout="@layout/header_layout" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_english"
+                android:layout_width="500dp"
+                android:layout_height="80dp"
+                android:background="@drawable/language_language_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/activity_language_choice_english"
+                android:textAllCaps="false"
+                android:textColor="@color/lca_text_color"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/rb_chinese"
+                android:layout_width="500dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/language_language_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/activity_language_choice_chinese"
+                android:textAllCaps="false"
+                android:textColor="@color/lca_text_color"
+                android:textSize="24sp" />
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cb_ok"
+            android:layout_width="500dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/language_bc_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/activity_language_choice_ok"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_cpuid"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginEnd="20dp"-->
+    <!--android:textColor="#00ff00"-->
+    <!--android:textSize="40sp" />-->
+
+
+</RelativeLayout>

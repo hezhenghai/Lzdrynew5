@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="seekBar_color">#00000000</color>
+
+    <color name="setting_seekBar_color">#ffffffff</color>
+
+    <color name="lca_text_color">#ffffffff</color>
+</resources>
