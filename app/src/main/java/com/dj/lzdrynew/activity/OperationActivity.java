@@ -337,9 +337,9 @@ public class OperationActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 sp.play(music, 1, 1, 0, 0, 1);
+                stopWork();
                 //上传时间到服务器
                 uploading();
-                stopWork();
                 Intent intent = new Intent(OperationActivity.this, VerificationCodeActivity.class);
                 startActivity(intent);
                 finish();
