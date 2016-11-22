@@ -960,14 +960,14 @@ public class OperationActivity extends BaseActivity {
     }
 
 
-    /**
-     * 界面停止
-     */
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopWork();
-    }
+//    /**
+//     * 界面停止
+//     */
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        stopWork();
+//    }
 
     /**
      * activity销毁后,释放timer,释放串口
