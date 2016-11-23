@@ -53,13 +53,18 @@
     <string name="login_activity_password_cannot_be_empty">Please enter password</string>
     <string name="login_activity_user_name_does_not_exist">Invalid username</string>
     <string name="login_activity_password_does_not_exist">Wrong password</string>
+    <string name="login_activity_server_exception">Server exception!</string>
 
     <string name="operation_activity_remaining_time_insufficient">The remaining time is less than 15min, please recharge.</string>
     <string name="operation_activity_power_or_time_is_0">No energy value or time, please set!</string>
+    <string name="operation_activity_press_another_exit">Press another exit</string>
 
 
     <string name="verification_code_activity_verification_code_cannot_be_empty">Please enter Verification!</string>
     <string name="verification_code_activity_verification_code_error">Wrong verification!</string>
+    <string name="verification_code_activity_server_exception">Server exception!</string>
+    <string name="verification_code_activity_no_time_tips">Your time has run out, please recharge!</string>
 
+    <string name="activity_booking_please_enter_the_confirmation_number">Please enter the confirmation number</string>
 
 </resources>

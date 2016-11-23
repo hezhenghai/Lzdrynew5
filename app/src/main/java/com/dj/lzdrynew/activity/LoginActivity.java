@@ -275,7 +275,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onError(Call call, final Exception e, int i) {
                         Util.showLog("TAG", "login-----onError------" + e);
-//                        Util.showToast(LoginActivity.this, "服务器异常！");
+                        Util.showToast(LoginActivity.this,getResources().getString(R.string.login_activity_server_exception));
                         //登录失败
                         dialog.dismiss();
                     }

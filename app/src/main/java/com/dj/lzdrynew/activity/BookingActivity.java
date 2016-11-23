@@ -43,7 +43,6 @@ public class BookingActivity extends BaseActivity {
                 finish();
             }
         });
-
     }
 
     /**

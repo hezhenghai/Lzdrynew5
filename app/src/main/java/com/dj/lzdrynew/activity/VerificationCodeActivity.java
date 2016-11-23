@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Size;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,10 +19,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.dj.lzdrynew.R;
-import com.dj.lzdrynew.model.LoginMsg;
 import com.dj.lzdrynew.model.MyConfig;
 import com.dj.lzdrynew.model.VerificationMsg;
-import com.dj.lzdrynew.utils.MD5;
 import com.dj.lzdrynew.utils.NetWorkUtils;
 import com.dj.lzdrynew.utils.Util;
 import com.dj.lzdrynew.views.LoadProgressDialog;
@@ -39,6 +36,7 @@ import okhttp3.Call;
  * 验证码界面
  */
 public class VerificationCodeActivity extends BaseActivity {
+
 
     /**
      * 亮度进度值
@@ -195,19 +193,25 @@ public class VerificationCodeActivity extends BaseActivity {
                             @Override
                             public void onError(Call call, final Exception e, int i) {
                                 Util.showLog("TAG", "verification-----onError------" + e);
-                                //验证失败
                                 dialog.dismiss();
+                                //验证失败
+                                Util.showToast(VerificationCodeActivity.this, getResources().getString(R.string.verification_code_activity_server_exception));
                             }
 
                             @Override
                             public void onResponse(final String s, int i) {
                                 Util.showLog("TAG", "verification-----onResponse------" + s);
+                                dialog.dismiss();
                                 // 验证成功
                                 VerificationMsg verificationMsg = new Gson().fromJson(s, VerificationMsg.class);
                                 // 验证通过
                                 if (verificationMsg.isSuccess()) {
                                     // 跳转到操作页面
                                     int remaintime = verificationMsg.getData().getRemaintime();
+                                    if (remaintime <= 0) {
+                                        Util.showToast(VerificationCodeActivity.this, getResources().getString(R.string.verification_code_activity_no_time_tips));
+                                        return;
+                                    }
                                     String verification = verificationMsg.getData().getVerification();
                                     // 保存剩余时间
                                     SharedPreferences sharedPreferences = getSharedPreferences(MyConfig.REMAINING_TIME, MODE_PRIVATE);
@@ -228,7 +232,7 @@ public class VerificationCodeActivity extends BaseActivity {
                                         ll_verification_code_error.setVisibility(View.VISIBLE);
                                     }
                                 }
-                                dialog.dismiss();
+
                             }
                         });
             }

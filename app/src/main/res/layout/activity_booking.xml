@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relativeLayout_login"
+    android:id="@+id/relativeLayout_booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
@@ -8,6 +8,130 @@
     android:focusableInTouchMode="true">
 
     <include layout="@layout/header_layout" />
+
+    <RelativeLayout
+        android:id="@+id/rl_input_booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_rectangle"
+            android:ems="20"
+            android:hint="@string/activity_booking_please_enter_the_confirmation_number"
+            android:paddingBottom="30dp"
+            android:paddingEnd="100dp"
+            android:paddingStart="20dp"
+            android:paddingTop="30dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#b3b3b3"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/ib_join2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/et_booking"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/image_booking_button_join2" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_booking_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_pages"
+        android:layout_below="@+id/rl_input_booking"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/bg_rectangle">
+
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/ll_pages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="55dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/image_booking_button_bg"
+            android:src="@drawable/icon_lefy_dis" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/image_booking_button_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:text="..."
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/image_booking_button_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="4"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/image_booking_button_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="5"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/image_booking_button_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="6"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/image_booking_button_bg"
+            android:src="@drawable/icon_right_dis" />
+
+    </LinearLayout>
 
 
     <RelativeLayout

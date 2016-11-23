@@ -48,6 +48,11 @@ import okhttp3.Call;
 public class OperationActivity extends BaseActivity {
 
     /**
+     * 再按一次退出
+     */
+    private long exitTime = 0;
+
+    /**
      * cpuid
      */
     private String cpuid;
@@ -337,12 +342,15 @@ public class OperationActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 sp.play(music, 1, 1, 0, 0, 1);
-                stopWork();
-                //上传时间到服务器
-                uploading();
-                Intent intent = new Intent(OperationActivity.this, VerificationCodeActivity.class);
-                startActivity(intent);
-                finish();
+                if (System.currentTimeMillis() - exitTime > 2000) {
+                    Util.showToast(OperationActivity.this, getResources().getString(R.string.operation_activity_press_another_exit));
+                    exitTime = System.currentTimeMillis();
+                } else {
+                    stopWork();
+                    Intent intent = new Intent(OperationActivity.this, VerificationCodeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
         //设置操作记录按钮点击效果
@@ -954,6 +962,8 @@ public class OperationActivity extends BaseActivity {
      */
     private void stopWork() {
         stopCountDown();
+        //上传时间到服务器
+        uploading();
         tv_start.setText(getResources().getString(R.string.activity_operation_start));
         isWorking = false;
         send(SerialData.SET_STOP);

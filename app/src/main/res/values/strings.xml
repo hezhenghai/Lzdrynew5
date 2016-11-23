@@ -53,16 +53,19 @@
     <string name="login_activity_password_cannot_be_empty">密码不能为空</string>
     <string name="login_activity_user_name_does_not_exist">该用户名不存在</string>
     <string name="login_activity_password_does_not_exist">密码错误</string>
+    <string name="login_activity_server_exception">服务器异常！</string>
 
     <string name="operation_activity_remaining_time_insufficient">剩余时间已不足15分钟，请及时充值！</string>
     <string name="operation_activity_power_or_time_is_0">能量或时间为0，请设置！</string>
+    <string name="operation_activity_press_another_exit">再按一次退出</string>
 
 
     <string name="verification_code_activity_verification_code_cannot_be_empty">验证码不能为空！</string>
     <string name="verification_code_activity_verification_code_error">验证码错误！</string>
+    <string name="verification_code_activity_server_exception">服务器异常！</string>
+    <string name="verification_code_activity_no_time_tips">您的时间已用完，请充值！</string>
 
-
-
+    <string name="activity_booking_please_enter_the_confirmation_number">请输入预约号</string>
 
 
 </resources>
