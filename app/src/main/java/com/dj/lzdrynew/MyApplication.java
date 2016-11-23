@@ -19,7 +19,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-
         /**** Beta高级设置*****/
         /**
          * true表示app启动自动初始化升级模块；
