@@ -32,7 +32,7 @@ public class MyApplication extends Application {
          * true表示初始化时自动检查升级
          * false表示不会自动检查升级，需要手动调用Beta.checkUpgrade()方法
          */
-        Beta.autoCheckUpgrade = true;
+        Beta.autoCheckUpgrade = false;
 
         /**
          * 设置升级周期为60s（默认检查周期为0s），60s内SDK不重复向后天请求策略
