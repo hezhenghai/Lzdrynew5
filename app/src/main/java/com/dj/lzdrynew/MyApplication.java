@@ -15,61 +15,9 @@ public class MyApplication extends Application {
 //    public static final String APP_CHANNEL = "DEBUG"; // TODO 自定义渠道
 //    private static final String TAG = "OnUILifecycleListener";
 
-//    /*自定义文案，修改后立即生效，默认控件文案如下*/
-//    public static String strToastYourAreTheLatestVersion = "你已经是最新版了";
-//    public static String strToastCheckUpgradeError = "检查新版本失败，请稍后重试";
-//    public static String strToastCheckingUpgrade = "正在检查，请稍候...";
-//    public static String strNotificationDownloading = "正在下载";
-//    public static String strNotificationClickToView = "点击查看";
-//    public static String strNotificationClickToInstall = "点击安装";
-//    public static String strNotificationClickToRetry = "点击重试";
-//    public static String strNotificationDownloadSucc = "下载完成";
-//    public static String strNotificationDownloadError = "下载失败";
-//    public static String strNotificationHaveNewVersion = "有新版本";
-//    public static String strNetworkTipsMessage = "你已切换到移动网络，是否继续当前下载？";
-//    public static String strNetworkTipsTitle = "网络提示";
-//    public static String strNetworkTipsConfirmBtn = "继续下载";
-//    public static String strNetworkTipsCancelBtn = "取消";
-//    public static String strUpgradeDialogVersionLabel = "版本";
-//    public static String strUpgradeDialogFileSizeLabel = "包大小";
-//    public static String strUpgradeDialogUpdateTimeLabel = "更新时间";
-//    public static String strUpgradeDialogFeatureLabel = "更新说明";
-//    public static String strUpgradeDialogUpgradeBtn = "立即更新";
-//    public static String strUpgradeDialogInstallBtn = "安装";
-//    public static String strUpgradeDialogRetryBtn = "重试";
-//    public static String strUpgradeDialogContinueBtn = "继续";
-//    public static String strUpgradeDialogCancelBtn = "下次再说";
-
     @Override
     public void onCreate() {
         super.onCreate();
-
-        /**
-         * 修改版本升级对话框中英文
-         */
-        Beta.strToastYourAreTheLatestVersion = getResources().getString(R.string.strToastYourAreTheLatestVersion);
-        Beta.strToastCheckUpgradeError = getResources().getString(R.string.strToastCheckUpgradeError);
-        Beta.strToastCheckingUpgrade = getResources().getString(R.string.strToastCheckingUpgrade);
-        Beta.strNotificationDownloading = getResources().getString(R.string.strNotificationDownloading);
-        Beta.strNotificationClickToView = getResources().getString(R.string.strNotificationClickToView);
-        Beta.strNotificationClickToInstall = getResources().getString(R.string.strNotificationClickToInstall);
-        Beta.strNotificationClickToRetry = getResources().getString(R.string.strNotificationClickToRetry);
-        Beta.strNotificationDownloadSucc = getResources().getString(R.string.strNotificationDownloadSucc);
-        Beta.strNotificationDownloadError = getResources().getString(R.string.strNotificationDownloadError);
-        Beta.strNotificationHaveNewVersion = getResources().getString(R.string.strNotificationHaveNewVersion);
-        Beta.strNetworkTipsMessage = getResources().getString(R.string.strNetworkTipsMessage);
-        Beta.strNetworkTipsTitle = getResources().getString(R.string.strNetworkTipsTitle);
-        Beta.strNetworkTipsConfirmBtn = getResources().getString(R.string.strNetworkTipsConfirmBtn);
-        Beta.strNetworkTipsCancelBtn = getResources().getString(R.string.strNetworkTipsCancelBtn);
-        Beta.strUpgradeDialogVersionLabel = getResources().getString(R.string.strUpgradeDialogVersionLabel);
-        Beta.strUpgradeDialogFileSizeLabel = getResources().getString(R.string.strUpgradeDialogFileSizeLabel);
-        Beta.strUpgradeDialogUpdateTimeLabel = getResources().getString(R.string.strUpgradeDialogUpdateTimeLabel);
-        Beta.strUpgradeDialogFeatureLabel = getResources().getString(R.string.strUpgradeDialogFeatureLabel);
-        Beta.strUpgradeDialogUpgradeBtn = getResources().getString(R.string.strUpgradeDialogUpgradeBtn);
-        Beta.strUpgradeDialogInstallBtn = getResources().getString(R.string.strUpgradeDialogInstallBtn);
-        Beta.strUpgradeDialogRetryBtn = getResources().getString(R.string.strUpgradeDialogRetryBtn);
-        Beta.strUpgradeDialogContinueBtn = getResources().getString(R.string.strUpgradeDialogContinueBtn);
-        Beta.strUpgradeDialogCancelBtn = getResources().getString(R.string.strUpgradeDialogCancelBtn);
 
 
         /**** Beta高级设置*****/

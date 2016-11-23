@@ -28,6 +28,7 @@ import com.dj.lzdrynew.utils.Util;
 import com.dj.lzdrynew.views.LoadProgressDialog;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.tencent.bugly.beta.Beta;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -71,6 +72,12 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        /**
+         * 修改版本升级对话框中英文
+         */
+        setUpdataLanguage();
+
+
         cpuid = Util.getCpuId();
 
         // 初始化控件
@@ -80,6 +87,7 @@ public class LoginActivity extends BaseActivity {
         setListeners();
 
     }
+
 
     /**
      * 初始化控件
@@ -275,7 +283,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onError(Call call, final Exception e, int i) {
                         Util.showLog("TAG", "login-----onError------" + e);
-                        Util.showToast(LoginActivity.this,getResources().getString(R.string.login_activity_server_exception));
+                        Util.showToast(LoginActivity.this, getResources().getString(R.string.login_activity_server_exception));
                         //登录失败
                         dialog.dismiss();
                     }
@@ -392,6 +400,36 @@ public class LoginActivity extends BaseActivity {
                         }
                     }
                 });
+    }
+
+
+    /**
+     * 修改版本升级对话框中英文
+     */
+    private void setUpdataLanguage() {
+        Beta.strToastYourAreTheLatestVersion = getResources().getString(R.string.strToastYourAreTheLatestVersion);
+        Beta.strToastCheckUpgradeError = getResources().getString(R.string.strToastCheckUpgradeError);
+        Beta.strToastCheckingUpgrade = getResources().getString(R.string.strToastCheckingUpgrade);
+        Beta.strNotificationDownloading = getResources().getString(R.string.strNotificationDownloading);
+        Beta.strNotificationClickToView = getResources().getString(R.string.strNotificationClickToView);
+        Beta.strNotificationClickToInstall = getResources().getString(R.string.strNotificationClickToInstall);
+        Beta.strNotificationClickToRetry = getResources().getString(R.string.strNotificationClickToRetry);
+        Beta.strNotificationDownloadSucc = getResources().getString(R.string.strNotificationDownloadSucc);
+        Beta.strNotificationDownloadError = getResources().getString(R.string.strNotificationDownloadError);
+        Beta.strNotificationHaveNewVersion = getResources().getString(R.string.strNotificationHaveNewVersion);
+        Beta.strNetworkTipsMessage = getResources().getString(R.string.strNetworkTipsMessage);
+        Beta.strNetworkTipsTitle = getResources().getString(R.string.strNetworkTipsTitle);
+        Beta.strNetworkTipsConfirmBtn = getResources().getString(R.string.strNetworkTipsConfirmBtn);
+        Beta.strNetworkTipsCancelBtn = getResources().getString(R.string.strNetworkTipsCancelBtn);
+        Beta.strUpgradeDialogVersionLabel = getResources().getString(R.string.strUpgradeDialogVersionLabel);
+        Beta.strUpgradeDialogFileSizeLabel = getResources().getString(R.string.strUpgradeDialogFileSizeLabel);
+        Beta.strUpgradeDialogUpdateTimeLabel = getResources().getString(R.string.strUpgradeDialogUpdateTimeLabel);
+        Beta.strUpgradeDialogFeatureLabel = getResources().getString(R.string.strUpgradeDialogFeatureLabel);
+        Beta.strUpgradeDialogUpgradeBtn = getResources().getString(R.string.strUpgradeDialogUpgradeBtn);
+        Beta.strUpgradeDialogInstallBtn = getResources().getString(R.string.strUpgradeDialogInstallBtn);
+        Beta.strUpgradeDialogRetryBtn = getResources().getString(R.string.strUpgradeDialogRetryBtn);
+        Beta.strUpgradeDialogContinueBtn = getResources().getString(R.string.strUpgradeDialogContinueBtn);
+        Beta.strUpgradeDialogCancelBtn = getResources().getString(R.string.strUpgradeDialogCancelBtn);
     }
 
 
