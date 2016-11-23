@@ -12,12 +12,65 @@ import com.tencent.bugly.beta.Beta;
  */
 public class MyApplication extends Application {
     public static final String APP_ID = "900059168"; // TODO 替换成bugly上注册的appid
-    public static final String APP_CHANNEL = "DEBUG"; // TODO 自定义渠道
-    private static final String TAG = "OnUILifecycleListener";
+//    public static final String APP_CHANNEL = "DEBUG"; // TODO 自定义渠道
+//    private static final String TAG = "OnUILifecycleListener";
+
+//    /*自定义文案，修改后立即生效，默认控件文案如下*/
+//    public static String strToastYourAreTheLatestVersion = "你已经是最新版了";
+//    public static String strToastCheckUpgradeError = "检查新版本失败，请稍后重试";
+//    public static String strToastCheckingUpgrade = "正在检查，请稍候...";
+//    public static String strNotificationDownloading = "正在下载";
+//    public static String strNotificationClickToView = "点击查看";
+//    public static String strNotificationClickToInstall = "点击安装";
+//    public static String strNotificationClickToRetry = "点击重试";
+//    public static String strNotificationDownloadSucc = "下载完成";
+//    public static String strNotificationDownloadError = "下载失败";
+//    public static String strNotificationHaveNewVersion = "有新版本";
+//    public static String strNetworkTipsMessage = "你已切换到移动网络，是否继续当前下载？";
+//    public static String strNetworkTipsTitle = "网络提示";
+//    public static String strNetworkTipsConfirmBtn = "继续下载";
+//    public static String strNetworkTipsCancelBtn = "取消";
+//    public static String strUpgradeDialogVersionLabel = "版本";
+//    public static String strUpgradeDialogFileSizeLabel = "包大小";
+//    public static String strUpgradeDialogUpdateTimeLabel = "更新时间";
+//    public static String strUpgradeDialogFeatureLabel = "更新说明";
+//    public static String strUpgradeDialogUpgradeBtn = "立即更新";
+//    public static String strUpgradeDialogInstallBtn = "安装";
+//    public static String strUpgradeDialogRetryBtn = "重试";
+//    public static String strUpgradeDialogContinueBtn = "继续";
+//    public static String strUpgradeDialogCancelBtn = "下次再说";
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        /**
+         * 修改版本升级对话框中英文
+         */
+        Beta.strToastYourAreTheLatestVersion = getResources().getString(R.string.strToastYourAreTheLatestVersion);
+        Beta.strToastCheckUpgradeError = getResources().getString(R.string.strToastCheckUpgradeError);
+        Beta.strToastCheckingUpgrade = getResources().getString(R.string.strToastCheckingUpgrade);
+        Beta.strNotificationDownloading = getResources().getString(R.string.strNotificationDownloading);
+        Beta.strNotificationClickToView = getResources().getString(R.string.strNotificationClickToView);
+        Beta.strNotificationClickToInstall = getResources().getString(R.string.strNotificationClickToInstall);
+        Beta.strNotificationClickToRetry = getResources().getString(R.string.strNotificationClickToRetry);
+        Beta.strNotificationDownloadSucc = getResources().getString(R.string.strNotificationDownloadSucc);
+        Beta.strNotificationDownloadError = getResources().getString(R.string.strNotificationDownloadError);
+        Beta.strNotificationHaveNewVersion = getResources().getString(R.string.strNotificationHaveNewVersion);
+        Beta.strNetworkTipsMessage = getResources().getString(R.string.strNetworkTipsMessage);
+        Beta.strNetworkTipsTitle = getResources().getString(R.string.strNetworkTipsTitle);
+        Beta.strNetworkTipsConfirmBtn = getResources().getString(R.string.strNetworkTipsConfirmBtn);
+        Beta.strNetworkTipsCancelBtn = getResources().getString(R.string.strNetworkTipsCancelBtn);
+        Beta.strUpgradeDialogVersionLabel = getResources().getString(R.string.strUpgradeDialogVersionLabel);
+        Beta.strUpgradeDialogFileSizeLabel = getResources().getString(R.string.strUpgradeDialogFileSizeLabel);
+        Beta.strUpgradeDialogUpdateTimeLabel = getResources().getString(R.string.strUpgradeDialogUpdateTimeLabel);
+        Beta.strUpgradeDialogFeatureLabel = getResources().getString(R.string.strUpgradeDialogFeatureLabel);
+        Beta.strUpgradeDialogUpgradeBtn = getResources().getString(R.string.strUpgradeDialogUpgradeBtn);
+        Beta.strUpgradeDialogInstallBtn = getResources().getString(R.string.strUpgradeDialogInstallBtn);
+        Beta.strUpgradeDialogRetryBtn = getResources().getString(R.string.strUpgradeDialogRetryBtn);
+        Beta.strUpgradeDialogContinueBtn = getResources().getString(R.string.strUpgradeDialogContinueBtn);
+        Beta.strUpgradeDialogCancelBtn = getResources().getString(R.string.strUpgradeDialogCancelBtn);
+
 
         /**** Beta高级设置*****/
         /**
@@ -26,7 +79,7 @@ public class MyApplication extends Application {
          * 开发者如果担心sdk初始化影响app启动速度，可以设置为false
          * 在后面某个时刻手动调用
          */
-        Beta.autoInit = true;
+//        Beta.autoInit = true;
 
         /**
          * true表示初始化时自动检查升级
@@ -37,35 +90,35 @@ public class MyApplication extends Application {
         /**
          * 设置升级周期为60s（默认检查周期为0s），60s内SDK不重复向后天请求策略
          */
-        Beta.initDelay = 60 * 1000;
+//        Beta.initDelay = 60 * 1000;
 
         /**
          * 设置通知栏大图标，largeIconId为项目中的图片资源；
          */
-        Beta.largeIconId = R.mipmap.ic_launcher;
+//        Beta.largeIconId = R.mipmap.ic_launcher;
 
         /**
          * 设置状态栏小图标，smallIconId为项目中的图片资源id;
          */
-        Beta.smallIconId = R.mipmap.ic_launcher;
+//        Beta.smallIconId = R.mipmap.ic_launcher;
 
 
         /**
          * 设置更新弹窗默认展示的banner，defaultBannerId为项目中的图片资源Id;
          * 当后台配置的banner拉取失败时显示此banner，默认不设置则展示“loading“;
          */
-        Beta.defaultBannerId = R.mipmap.ic_launcher;
+//        Beta.defaultBannerId = R.mipmap.ic_launcher;
 
         /**
          * 设置sd卡的Download为更新资源保存目录;
          * 后续更新资源会保存在此目录，需要在manifest中添加WRITE_EXTERNAL_STORAGE权限;
          */
-        Beta.storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+//        Beta.storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 
         /**
          * 点击过确认的弹窗在APP下次启动自动检查更新时会再次显示;
          */
-        Beta.showInterruptedStrategy = true;
+//        Beta.showInterruptedStrategy = true;
 
         /**
          * 只允许在MainActivity上显示更新弹窗，其他activity上不显示弹窗;
