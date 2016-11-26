@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Lzdrynew.iml" filepath="$PROJECT_DIR$/Lzdrynew.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compoundButtonView/compoundButtonView.iml" filepath="$PROJECT_DIR$/compoundButtonView/compoundButtonView.iml" />
     </modules>
   </component>
 </project>

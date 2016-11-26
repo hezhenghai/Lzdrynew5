@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.net.ConnectivityManager;
@@ -18,6 +19,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,6 +34,8 @@ import com.dj.lzdrynew.utils.Util;
 import com.dj.lzdrynew.views.NetWorkDialog;
 import com.tencent.bugly.beta.Beta;
 
+import java.lang.reflect.Method;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -102,35 +106,45 @@ public class BaseActivity extends Activity {
     public Handler baseHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
-            // 网络断开
-            if (msg.what == 0x444) {
-                Util.showLog("TAG", "4444444444444444444");
-                iv_wifi.setImageResource(R.drawable.icon_wifi_no);
-                showWifiSetDialog();
-            }
-            //网络连接成功
-            if (msg.what == 0x555) {
-                wifiSuccess();
-            }
-
-            //wifi信号
-            if (msg.what == 0x9999) {
-                wifiInfo = wifiManager.getConnectionInfo();
-                level = wifiInfo.getRssi();
-                Util.showLog("TAG", "wifi-------------- " + level);
-                //根据获得的信号强度发送信息
-                if (level <= 0 && level >= -50) {
-                    iv_wifi.setImageResource(R.drawable.icon_wifi_strong);
-                } else if (level < -50 && level >= -90) {
-                    iv_wifi.setImageResource(R.drawable.icon_wifi_mediu);
-                } else if (level < -90 && level > -200) {
-                    iv_wifi.setImageResource(R.drawable.icon_wifi_weak);
-                } else {
-                    iv_wifi.setImageResource(R.drawable.icon_wifi_no);
-                }
-            }
+            //处理消息
+            processingMessage(msg);
         }
     };
+
+    /**
+     * 处理消息
+     *
+     * @param msg
+     */
+    public void processingMessage(Message msg) {
+        // 网络断开
+        if (msg.what == 0x444) {
+            Util.showLog("TAG", "4444444444444444444");
+            iv_wifi.setImageResource(R.drawable.icon_wifi_no);
+            showWifiSetDialog();
+        }
+        //网络连接成功
+        if (msg.what == 0x555) {
+            wifiSuccess();
+        }
+
+        //wifi信号
+        if (msg.what == 0x9999) {
+            wifiInfo = wifiManager.getConnectionInfo();
+            level = wifiInfo.getRssi();
+            Util.showLog("TAG", "wifi-------------- " + level);
+            //根据获得的信号强度发送信息
+            if (level <= 0 && level >= -50) {
+                iv_wifi.setImageResource(R.drawable.icon_wifi_strong);
+            } else if (level < -50 && level >= -90) {
+                iv_wifi.setImageResource(R.drawable.icon_wifi_mediu);
+            } else if (level < -90 && level > -200) {
+                iv_wifi.setImageResource(R.drawable.icon_wifi_weak);
+            } else {
+                iv_wifi.setImageResource(R.drawable.icon_wifi_no);
+            }
+        }
+    }
 
     //网络连接后执行的操作
     public void wifiSuccess() {
@@ -177,9 +191,8 @@ public class BaseActivity extends Activity {
 //        }
         sp = new SoundPool(10, AudioManager.STREAM_MUSIC, 5);//第一个参数为同时播放数据流的最大个数，第二数据流类型，第三为声音质量
         music = sp.load(this, R.raw.keytone, 1); //把你的声音素材放到res/raw里，第2个参数即为资源文件，第3个为音乐的优先级
-        music2 = sp.load(this, R.raw.playkey, 1); //把你的声音素材放到res/raw里，第2个参数即为资源文件，第3个为音乐的优先级
-        music3 = sp.load(this, R.raw.working, 1); //把你的声音素材放到res/raw里，第2个参数即为资源文件，第3个为音乐的优先级
-
+        music2 = sp.load(this, R.raw.playkey, 10); //把你的声音素材放到res/raw里，第2个参数即为资源文件，第3个为音乐的优先级
+        music3 = sp.load(this, R.raw.working, 100); //把你的声音素材放到res/raw里，第2个参数即为资源文件，第3个为音乐的优先级
 
         activity = this;
 
@@ -365,6 +378,33 @@ public class BaseActivity extends Activity {
         }
     }
 
+    /**
+     * 通过反射的反射改变系统语言
+     *
+     * @param locale
+     */
+    public void updateLanguage(Locale locale) {
+//        try {
+//            Object objIActMag, objActMagNative;
+//            Class clzIActMag = Class.forName("android.app.IActivityManager");
+//            Class clzActMagNative = Class.forName("android.app.ActivityManagerNative");
+//            Method mtdActMagNative$getDefault = clzActMagNative.getDeclaredMethod("getDefault");
+//            // IActivityManager iActMag = ActivityManagerNative.getDefault();
+//            objIActMag = mtdActMagNative$getDefault.invoke(clzActMagNative);
+//            // Configuration config = iActMag.getConfiguration();
+//            Method mtdIActMag$getConfiguration = clzIActMag.getDeclaredMethod("getConfiguration");
+//            Configuration config = (Configuration) mtdIActMag$getConfiguration.invoke(objIActMag);
+//            config.locale = locale;
+//            // iActMag.updateConfiguration(config);
+//            // 此处需要声明权限:android.permission.CHANGE_CONFIGURATION
+//            // 会重新调用 onCreate();
+//            Class[] clzParams = {Configuration.class};
+//            Method mtdIActMag$updateConfiguration = clzIActMag.getDeclaredMethod("updateConfiguration", clzParams);
+//            mtdIActMag$updateConfiguration.invoke(objIActMag, config);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+    }
 
     @Override
     protected void onStop() {
@@ -372,10 +412,6 @@ public class BaseActivity extends Activity {
         if (dialog != null) {
             dialog.dismiss();
             dialog = null;
-        }
-        if (wifiTimer != null) {
-            wifiTimer.cancel();
-            wifiTimer = null;
         }
     }
 

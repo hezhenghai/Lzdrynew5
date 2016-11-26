@@ -2,13 +2,18 @@ package com.dj.lzdrynew.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,6 +39,10 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.w3c.dom.Text;
 
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import okhttp3.Call;
 
 /**
@@ -53,10 +62,18 @@ public class LoginActivity extends BaseActivity {
 
     //布局组件
     private RelativeLayout relativeLayout_login;
-    private LinearLayout ll_language_choice, ll_booking, ll_username_error, ll_password_error;
-    private TextView tv_username_error, tv_password_error;
+    //    private LinearLayout ll_language_choice, ll_booking, ll_username_error, ll_password_error;
+    private LinearLayout ll_language_choice, ll_username_error, ll_password_error;
+    private TextView tv_username_error, tv_password_error, tv_language_choice;
     private EditText et_user_name, et_password;
     private Button bt_login;
+
+    //显示cpuid
+    private TextView tv_cpu_id;
+    private ImageView iv_logo;
+    private int clickCount;//点击次数
+    private int showTime;//显示时间
+    private Timer showTimer;//显示10秒后关闭
 
 
     //重写父类方法，连网成功后定位，绑定设备
@@ -65,6 +82,22 @@ public class LoginActivity extends BaseActivity {
         super.wifiSuccess();
         // 定位
         myLocation();
+    }
+
+    @Override
+    public void processingMessage(Message msg) {
+        super.processingMessage(msg);
+        if (msg.what == 0x54321) {
+            showTime++;
+            if (showTime >= 10) {
+                showTime = 0;
+                tv_cpu_id.setVisibility(View.GONE);
+                if (showTimer != null) {
+                    showTimer.cancel();
+                    showTimer = null;
+                }
+            }
+        }
     }
 
     @Override
@@ -77,7 +110,6 @@ public class LoginActivity extends BaseActivity {
          */
         setUpdataLanguage();
 
-
         cpuid = Util.getCpuId();
 
         // 初始化控件
@@ -86,6 +118,51 @@ public class LoginActivity extends BaseActivity {
         // 设置监听事件
         setListeners();
 
+        // 设置默认声音亮度
+        setVolumeAndBBrightness();
+
+        // 判断是否第一次进入
+        isFirstOpen();
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //刷新界面
+        et_user_name.setHint(getResources().getString(R.string.activity_login_username));
+        et_password.setHint(getResources().getString(R.string.activity_login_password));
+        bt_login.setText(getResources().getString(R.string.activity_login_login));
+        tv_language_choice.setText(getResources().getString(R.string.activity_login_language_choice));
+    }
+
+    /**
+     * 判断是否第一次进入
+     */
+    private void isFirstOpen() {
+        SharedPreferences share = getSharedPreferences(LanguageChoiceActivity.LANGUAGE, MODE_PRIVATE);
+        String lan = share.getString(LanguageChoiceActivity.LANGUAGE, null);
+        if (lan != null) {
+            //设置应用语言类型
+            Resources resources = getResources();
+            Configuration configuration = resources.getConfiguration();
+            DisplayMetrics dm = resources.getDisplayMetrics();
+            if (lan.equals("en")) {
+                configuration.locale = Locale.ENGLISH;
+            } else {
+                configuration.locale = Locale.SIMPLIFIED_CHINESE;
+            }
+            resources.updateConfiguration(configuration, dm);
+            //通过反射改变系统语言
+            updateLanguage(configuration.locale);
+        } else {
+            ll_username_error.setVisibility(View.GONE);
+            ll_password_error.setVisibility(View.GONE);
+            tv_cpu_id.setVisibility(View.GONE);
+            Intent intent = new Intent(LoginActivity.this, LanguageChoiceActivity.class);
+            startActivity(intent);
+        }
     }
 
 
@@ -100,11 +177,14 @@ public class LoginActivity extends BaseActivity {
         et_password = (EditText) findViewById(R.id.et_password);
         bt_login = (Button) findViewById(R.id.bt_login);
         ll_language_choice = (LinearLayout) findViewById(R.id.ll_language_choice);
-        ll_booking = (LinearLayout) findViewById(R.id.ll_booking);
+//        ll_booking = (LinearLayout) findViewById(R.id.ll_booking);
         ll_username_error = (LinearLayout) findViewById(R.id.ll_username_error);
         ll_password_error = (LinearLayout) findViewById(R.id.ll_password_error);
         tv_username_error = (TextView) findViewById(R.id.tv_username_error);
         tv_password_error = (TextView) findViewById(R.id.tv_password_error);
+        tv_language_choice = (TextView) findViewById(R.id.tv_language_choice);
+        iv_logo = (ImageView) findViewById(R.id.iv_logo);
+        tv_cpu_id = (TextView) findViewById(R.id.tv_cpu_id);
     }
 
     /**
@@ -221,38 +301,63 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 sp.play(music, 1, 1, 0, 0, 1);
                 // 清空语言保存
+                ll_username_error.setVisibility(View.GONE);
+                ll_password_error.setVisibility(View.GONE);
                 SharedPreferences sharedPreferences = getSharedPreferences(LanguageChoiceActivity.LANGUAGE, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(LanguageChoiceActivity.LANGUAGE, null);
                 editor.apply();
+                tv_cpu_id.setVisibility(View.GONE);
                 Intent intent = new Intent(LoginActivity.this, LanguageChoiceActivity.class);
                 startActivity(intent);
-                finish();
+//                finish();
             }
         });
-        ll_booking.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    ll_booking.setBackgroundResource(R.drawable.btn_bg_nor_2);
-                }
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    ll_booking.setBackgroundResource(R.drawable.btn_bg_sel_2);
-                }
-                return false;
-            }
-        });
-        /**
-         * 进入客户预约界面
-         */
-        ll_booking.setOnClickListener(new View.OnClickListener() {
+//        ll_booking.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_UP) {
+//                    ll_booking.setBackgroundResource(R.drawable.btn_bg_nor_2);
+//                }
+//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    ll_booking.setBackgroundResource(R.drawable.btn_bg_sel_2);
+//                }
+//                return false;
+//            }
+//        });
+//        /**
+//         * 进入客户预约界面
+//         */
+//        ll_booking.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                sp.play(music, 1, 1, 0, 0, 1);
+//                Util.showToast(LoginActivity.this, getResources().getString(R.string.this_function_to_develop));
+////                Intent intent = new Intent(LoginActivity.this, BookingActivity.class);
+////                startActivity(intent);
+////                finish();
+//            }
+//        });
+        iv_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sp.play(music, 1, 1, 0, 0, 1);
-                Util.showToast(LoginActivity.this, getResources().getString(R.string.this_function_to_develop));
-//                Intent intent = new Intent(LoginActivity.this, BookingActivity.class);
-//                startActivity(intent);
-//                finish();
+                clickCount++;
+                if (clickCount >= 5) {
+                    clickCount = 0;
+                    tv_cpu_id.setText("ID:" + cpuid);
+                    tv_cpu_id.setVisibility(View.VISIBLE);
+                    if (showTimer != null) {
+                        showTimer.cancel();
+                        showTimer = null;
+                    }
+                    showTimer = new Timer();
+                    showTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            baseHandler.sendEmptyMessage(0x54321);
+                        }
+                    }, 1000, 1000);
+                }
             }
         });
     }
@@ -296,6 +401,7 @@ public class LoginActivity extends BaseActivity {
                         // 验证通过
                         if (loginMsg.isSuccess()) {
                             // 跳转到核查码页面
+                            tv_cpu_id.setVisibility(View.GONE);
                             Intent intent = new Intent(LoginActivity.this, VerificationCodeActivity.class);
                             startActivity(intent);
                             finish();
@@ -432,5 +538,20 @@ public class LoginActivity extends BaseActivity {
         Beta.strUpgradeDialogCancelBtn = getResources().getString(R.string.strUpgradeDialogCancelBtn);
     }
 
+    /**
+     * 设置默认声音亮度
+     */
+    private void setVolumeAndBBrightness() {
+        setSystemVolume(getSystemVolume());
+        setScreenBrightness(getScreenBrightness());
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (showTimer != null) {
+            showTimer.cancel();
+            showTimer = null;
+        }
+    }
 }

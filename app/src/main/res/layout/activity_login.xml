@@ -7,7 +7,47 @@
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <include layout="@layout/header_layout" />
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logo_header_03" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="0dp">
+
+        <ImageButton
+            android:id="@+id/ib_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:src="@drawable/image_back_button" />
+
+        <ImageView
+            android:id="@+id/iv_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:src="@drawable/icon_wifi_no" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_cpu_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +59,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="0dp">
 
             <EditText
                 android:id="@+id/et_user_name"
@@ -102,46 +142,48 @@
             android:textColor="#ffffff"
             android:textSize="25sp" />
 
-        <LinearLayout
-            android:layout_width="500dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp">
+        <!--<LinearLayout-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="500dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="15dp">-->
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="15dp"
-                android:layout_weight="1"
-                android:background="#ffffff" />
+        <!--<RelativeLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginStart="15dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="#ffffff" />-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center_horizontal"
-                android:text="@string/activity_login_use_third_account_login"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="2"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="@string/activity_login_use_third_account_login"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="18sp" />-->
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="15dp"
-                android:layout_weight="1"
-                android:background="#ffffff" />
+        <!--<RelativeLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginEnd="15dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="#ffffff" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:src="@drawable/image_wei_chat_button" />
+        <!--<ImageButton-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="@null"-->
+        <!--android:src="@drawable/image_wei_chat_button" />-->
 
     </LinearLayout>
 
@@ -158,29 +200,30 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/ll_booking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_bg_nor_2"
-                android:gravity="center_vertical">
+            <!--<LinearLayout-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/ll_booking"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/btn_bg_nor_2"-->
+            <!--android:gravity="center_vertical">-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="-5dp"
-                    android:src="@drawable/icon_booking_2" />
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="-5dp"-->
+            <!--android:src="@drawable/icon_booking_2" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingEnd="10dp"
-                    android:paddingStart="0dp"
-                    android:text="@string/activity_login_customers_booking"
-                    android:textColor="#375b66"
-                    android:textSize="18sp" />
-            </LinearLayout>
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingEnd="10dp"-->
+            <!--android:paddingStart="0dp"-->
+            <!--android:text="@string/activity_login_customers_booking"-->
+            <!--android:textColor="#375b66"-->
+            <!--android:textSize="18sp" />-->
+            <!--</LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/ll_language_choice"
@@ -197,6 +240,7 @@
                     android:src="@drawable/icon_booking_2" />
 
                 <TextView
+                    android:id="@+id/tv_language_choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingEnd="10dp"

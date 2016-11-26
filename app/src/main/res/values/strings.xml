@@ -14,7 +14,7 @@
     <string name="activity_login_password">密码</string>
     <string name="activity_login_use_third_account_login">使用第三方账号登录</string>
     <string name="activity_login_customers_booking">客户预约</string>
-    <string name="activity_login_language_choice">语言选择</string>
+    <string name="activity_login_language_choice">选择语言</string>
 
     <string name="activity_operation_remaining_time">剩余时间</string>
     <string name="activity_operation_anode">正极</string>
@@ -27,18 +27,21 @@
     <string name="activity_operation_stop">暂停</string>
     <string name="activity_operation_operation_records">操作记录</string>
 
-    <string name="activity_verification_code_input_verification_code">请输入验证码</string>
+    <string name="activity_verification_code_input_verification_code">输入验证码</string>
     <string name="activity_verification_code_ok">确定</string>
     <string name="activity_verification_code_you_can">您可以</string>
     <string name="activity_verification_code_scan_qr_code">扫描二维码</string>
+    <string name="activity_verification_code_scan_ok">确定</string>
 
     <string name="dialog_setting_voice">声音</string>
     <string name="dialog_setting_brightness">亮度</string>
 
     <string name="dialog_upgrade_version_update">版本升级</string>
     <string name="dialog_upgrade_version_update_tips">检测到最新版本，请及时更新。</string>
-    <string name="dialog_upgrade_update_now">立即更新</string>
+    <string name="dialog_upgrade_update_now">确定</string>
 
+    <string name="dialog_version_version">V 1.0</string>
+    <string name="dialog_version_date">11.14.2016</string>
     <string name="dialog_version_copyright">版权 2016 DJM</string>
     <string name="dialog_version_serial_number">序号：81800023</string>
     <string name="dialog_version_bootloader">引导装载程序：1.00</string>
@@ -52,10 +55,11 @@
     <string name="login_activity_user_name_cannot_be_empty">用户名不能为空</string>
     <string name="login_activity_password_cannot_be_empty">密码不能为空</string>
     <string name="login_activity_user_name_does_not_exist">该用户名不存在</string>
-    <string name="login_activity_password_does_not_exist">密码错误</string>
+    <string name="login_activity_password_does_not_exist">密码输入错误</string>
     <string name="login_activity_server_exception">服务器异常！</string>
 
     <string name="operation_activity_remaining_time_insufficient">剩余时间已不足15分钟，请及时充值！</string>
+    <string name="operation_activity_time_is_max">时间已调到最大</string>
     <string name="operation_activity_power_or_time_is_0">能量或时间为0，请设置！</string>
     <string name="operation_activity_press_another_exit">再按一次退出</string>
 
@@ -66,8 +70,6 @@
     <string name="verification_code_activity_no_time_tips">您的时间已用完，请充值！</string>
 
     <string name="activity_booking_please_enter_the_confirmation_number">请输入预约号</string>
-
-
 
     <!--/*自定义文案，修改后立即生效，默认控件文案如下*/-->
     <string name="strToastYourAreTheLatestVersion">你已经是最新版了</string>
@@ -88,11 +90,10 @@
     <string name="strUpgradeDialogFileSizeLabel">包大小</string>
     <string name="strUpgradeDialogUpdateTimeLabel">更新时间</string>
     <string name="strUpgradeDialogFeatureLabel">更新说明</string>
-    <string name="strUpgradeDialogUpgradeBtn">立即更新</string>
+    <string name="strUpgradeDialogUpgradeBtn">确定</string>
     <string name="strUpgradeDialogInstallBtn">安装</string>
     <string name="strUpgradeDialogRetryBtn">重试</string>
     <string name="strUpgradeDialogContinueBtn">继续</string>
     <string name="strUpgradeDialogCancelBtn">下次再说</string>
-
 
 </resources>

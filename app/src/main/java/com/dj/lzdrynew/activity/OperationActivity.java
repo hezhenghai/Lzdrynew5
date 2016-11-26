@@ -199,36 +199,60 @@ public class OperationActivity extends BaseActivity {
      */
     int brightnessProgress = 0;
 
-    /**
-     * 定义Handler完成倒计时任务
-     */
-    private Handler mHandler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 0x123) {
-                if (mTime > 0) {
-                    if (mmmm >= 2) {
-                        mmmm = 0;
-                        sp.play(music3, 1, 1, 0, 0, 1);
-                    } else {
-                        mmmm++;
-                    }
-                    mTotalTimeRemaining--;
-                    mTime--;
-                    updateTimeDisplay();
-                    updateTimeRemaining();
+//    /**
+//     * 定义Handler完成倒计时任务
+//     */
+//    private Handler mHandler = new Handler(Looper.getMainLooper()) {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            if (msg.what == 0x123) {
+//                if (mTime > 0) {
+//                    if (mmmm >= 2) {
+//                        mmmm = 0;
+//                        sp.play(music3, 1, 1, 0, 0, 1);
+//                    } else {
+//                        mmmm++;
+//                    }
+//                    mTotalTimeRemaining--;
+//                    mTime--;
+//                    updateTimeDisplay();
+//                    updateTimeRemaining();
+//                }
+//                //消费码剩余时间用完
+//                //工作完成,结束计时任务,恢复初始,提示,重置时间为max,重置电流为0
+//                if (mTime <= 0 || mTotalTimeRemaining <= 0) {
+//                    stopWork();
+//                    setInit();
+//                }
+//            }
+//
+//        }
+//    };
+
+    @Override
+    public void processingMessage(Message msg) {
+        super.processingMessage(msg);
+        if (msg.what == 0x123) {
+            if (mTime > 0) {
+                if (mmmm >= 2) {
+                    mmmm = 0;
+                    sp.play(music3, 1, 1, 0, 0, 1);
+                } else {
+                    mmmm++;
                 }
-                //消费码剩余时间用完
-                //工作完成,结束计时任务,恢复初始,提示,重置时间为max,重置电流为0
-                if (mTime <= 0 || mTotalTimeRemaining <= 0) {
-                    stopWork();
-                    setInit();
-                }
+                mTotalTimeRemaining--;
+                mTime--;
+                updateTimeDisplay();
+                updateTimeRemaining();
             }
-
+            //消费码剩余时间用完
+            //工作完成,结束计时任务,恢复初始,提示,重置时间为max,重置电流为0
+            if (mTime <= 0 || mTotalTimeRemaining <= 0) {
+                stopWork();
+                setInit();
+            }
         }
-    };
-
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -541,7 +565,16 @@ public class OperationActivity extends BaseActivity {
             public void onClick(View v) {
                 sp.play(music, 1, 1, 0, 0, 1);
                 setMax();
-                if (mTime == max) return;
+                if (mTotalTimeRemaining == 0) {
+                    // 剩余时间已不足15分钟，请及时充值！
+                    Util.showToast(OperationActivity.this, getResources().getString(R.string.operation_activity_remaining_time_insufficient));
+                    return;
+                }
+                if (mTime == max) {
+                    // 时间已调到最大
+                    Util.showToast(OperationActivity.this, getResources().getString(R.string.operation_activity_time_is_max));
+                    return;
+                }
                 if (mTime < max) {
                     mTime += 60;
                 }
@@ -855,7 +888,7 @@ public class OperationActivity extends BaseActivity {
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                mHandler.sendEmptyMessage(0x123);
+                baseHandler.sendEmptyMessage(0x123);
             }
         }, 0, 1000);
     }

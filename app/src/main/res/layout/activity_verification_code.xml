@@ -66,11 +66,12 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="-120dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -83,6 +84,7 @@
                 android:id="@+id/tv_qr_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
                 android:text="@string/activity_verification_code_scan_qr_code"
                 android:textColor="#2eb6aa"
                 android:textSize="20sp" />
@@ -90,7 +92,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_verification_code_ok"
+                android:layout_marginStart="2dp"
+                android:text="@string/activity_verification_code_scan_ok"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
         </LinearLayout>

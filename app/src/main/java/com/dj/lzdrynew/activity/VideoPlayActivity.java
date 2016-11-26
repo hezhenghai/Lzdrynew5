@@ -5,4 +5,5 @@ package com.dj.lzdrynew.activity;
  */
 
 public class VideoPlayActivity extends BaseActivity {
+
 }
