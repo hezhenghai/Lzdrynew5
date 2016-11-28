@@ -48,6 +48,14 @@ import okhttp3.Call;
 public class OperationActivity extends BaseActivity {
 
     /**
+     * 能量字体大小显示
+     */
+    private TextView tv_low_00, tv_low_04, tv_low_05, tv_low_06, tv_low_07, tv_low_08, tv_low_09, tv_low_10, tv_low_11, tv_low_12, tv_low_13, tv_low_14, tv_low_15;
+    private TextView tv_high_00, tv_high_16, tv_high_17, tv_high_18, tv_high_19, tv_high_20, tv_high_21, tv_high_22, tv_high_23, tv_high_24, tv_high_25, tv_high_26, tv_high_27;
+    private TextView[] tv_lows;
+    private TextView[] tv_highs;
+
+    /**
      * 再按一次退出
      */
     private long exitTime = 0;
@@ -295,6 +303,8 @@ public class OperationActivity extends BaseActivity {
         //进度条位置归零
         power = 0;
         updatePowerSend();
+        //更新进度条显示
+        setSeekBarUpdate();
         lowSeekBar.setProgress(0);
         highSeekBar.setProgress(0);
         lowSeekBar.setEnabled(true);
@@ -355,6 +365,34 @@ public class OperationActivity extends BaseActivity {
         ib_start = (ImageButton) findViewById(R.id.ib_start);
         tv_start = (TextView) findViewById(R.id.tv_start);
         ib_setting = (ImageButton) findViewById(R.id.ib_setting);
+        tv_low_00 = (TextView) findViewById(R.id.tv_low_00);
+        tv_low_04 = (TextView) findViewById(R.id.tv_low_04);
+        tv_low_05 = (TextView) findViewById(R.id.tv_low_05);
+        tv_low_06 = (TextView) findViewById(R.id.tv_low_06);
+        tv_low_07 = (TextView) findViewById(R.id.tv_low_07);
+        tv_low_08 = (TextView) findViewById(R.id.tv_low_08);
+        tv_low_09 = (TextView) findViewById(R.id.tv_low_09);
+        tv_low_10 = (TextView) findViewById(R.id.tv_low_10);
+        tv_low_11 = (TextView) findViewById(R.id.tv_low_11);
+        tv_low_12 = (TextView) findViewById(R.id.tv_low_12);
+        tv_low_13 = (TextView) findViewById(R.id.tv_low_13);
+        tv_low_14 = (TextView) findViewById(R.id.tv_low_14);
+        tv_low_15 = (TextView) findViewById(R.id.tv_low_15);
+        tv_high_00 = (TextView) findViewById(R.id.tv_high_00);
+        tv_high_16 = (TextView) findViewById(R.id.tv_high_16);
+        tv_high_17 = (TextView) findViewById(R.id.tv_high_17);
+        tv_high_18 = (TextView) findViewById(R.id.tv_high_18);
+        tv_high_19 = (TextView) findViewById(R.id.tv_high_19);
+        tv_high_20 = (TextView) findViewById(R.id.tv_high_20);
+        tv_high_21 = (TextView) findViewById(R.id.tv_high_21);
+        tv_high_22 = (TextView) findViewById(R.id.tv_high_22);
+        tv_high_23 = (TextView) findViewById(R.id.tv_high_23);
+        tv_high_24 = (TextView) findViewById(R.id.tv_high_24);
+        tv_high_25 = (TextView) findViewById(R.id.tv_high_25);
+        tv_high_26 = (TextView) findViewById(R.id.tv_high_26);
+        tv_high_27 = (TextView) findViewById(R.id.tv_high_27);
+        tv_lows = new TextView[]{tv_low_00, tv_low_04, tv_low_05, tv_low_06, tv_low_07, tv_low_08, tv_low_09, tv_low_10, tv_low_11, tv_low_12, tv_low_13, tv_low_14, tv_low_15};
+        tv_highs = new TextView[]{tv_high_00, tv_high_16, tv_high_17, tv_high_18, tv_high_19, tv_high_20, tv_high_21, tv_high_22, tv_high_23, tv_high_24, tv_high_25, tv_high_26, tv_high_27};
     }
 
     /**
@@ -553,6 +591,7 @@ public class OperationActivity extends BaseActivity {
                 }
                 power = 0;
                 updatePowerSend();
+                setSeekBarUpdate();
                 stopWork();
                 lowSeekBar.setProgress(0);
                 highSeekBar.setProgress(0);
@@ -862,8 +901,22 @@ public class OperationActivity extends BaseActivity {
     private void setSeekBarUpdate() {
         if (powerState.equals(LOW)) {
             lowSeekBar.setProgress(progressValue[power]);
+            for (int i = 0; i < tv_lows.length; i++) {
+                tv_lows[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+            }
+            for (int i = 0; i < tv_highs.length; i++) {
+                tv_highs[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+            }
+            tv_lows[power].setTextSize(getResources().getDimension(R.dimen.sp24));
         } else if (powerState.equals(HIGH)) {
             highSeekBar.setProgress(progressValue[power]);
+            for (int i = 0; i < tv_lows.length; i++) {
+                tv_lows[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+            }
+            for (int i = 0; i < tv_highs.length; i++) {
+                tv_highs[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+            }
+            tv_highs[power].setTextSize(getResources().getDimension(R.dimen.sp24));
         }
     }
 

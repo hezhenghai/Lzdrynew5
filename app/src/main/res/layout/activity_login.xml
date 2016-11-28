@@ -67,7 +67,8 @@
                 android:layout_width="500dp"
                 android:layout_height="80dp"
                 android:layout_centerInParent="true"
-                android:hint="@string/activity_login_username" />
+                android:hint="@string/activity_login_username"
+                android:text="admin" />
 
             <LinearLayout
                 android:id="@+id/ll_username_error"
@@ -104,7 +105,8 @@
                 android:layout_height="80dp"
                 android:layout_centerInParent="true"
                 android:hint="@string/activity_login_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="123456" />
 
             <LinearLayout
                 android:id="@+id/ll_password_error"

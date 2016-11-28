@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
 
 
     <application
@@ -41,8 +41,10 @@
         <!--  设置app无标题栏,无状态栏,全屏显示 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"  -->
         <!--  设置activity横屏显示 android:screenOrientation="landscape"  -->
         <!--  设置键盘不自动弹出 android:windowSoftInputMode="stateHidden|stateUnchanged"  -->
+
         <!-- 语言选择页面 -->
         <activity android:name=".activity.LanguageChoiceActivity" />
+
         <!-- 登录页面 -->
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
@@ -53,14 +55,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <!-- 验证码页面 -->
         <activity android:name=".activity.VerificationCodeActivity" />
+
         <!-- 预约页面 -->
         <activity android:name=".activity.BookingActivity" />
+
         <!-- 操作页面 -->
         <activity android:name=".activity.OperationActivity" />
+
         <!-- 操作记录页面 -->
         <activity android:name=".activity.OperationRecordActivity" />
+
         <!-- 操作指南页面 -->
         <activity android:name=".activity.GuideActivity" />
 
