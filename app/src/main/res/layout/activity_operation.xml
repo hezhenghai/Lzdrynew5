@@ -171,7 +171,7 @@
                 android:id="@+id/high_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/image_low_high_button"
                 android:button="@null"
                 android:checked="false"
@@ -187,7 +187,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="-5dp"
             android:layout_marginStart="-25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <RelativeLayout

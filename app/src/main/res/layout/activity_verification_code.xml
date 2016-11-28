@@ -27,7 +27,7 @@
                 android:layout_height="80dp"
                 android:layout_centerInParent="true"
                 android:hint="@string/activity_verification_code_input_verification_code"
-                android:text="920840" />
+                android:text="be092649ce5" />
 
             <LinearLayout
                 android:id="@+id/ll_verification_code_error"

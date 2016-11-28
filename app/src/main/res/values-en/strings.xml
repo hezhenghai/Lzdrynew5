@@ -19,7 +19,7 @@
     <string name="activity_operation_remaining_time">Remaining Time</string>
     <string name="activity_operation_anode">Positive Electrode</string>
     <string name="activity_operation_cathode">Negative Electrode</string>
-    <string name="activity_operation_power">Energy Value</string>
+    <string name="activity_operation_power">Energy</string>
     <string name="activity_operation_time">TIME</string>
     <string name="activity_operation_low">Low</string>
     <string name="activity_operation_high">High</string>

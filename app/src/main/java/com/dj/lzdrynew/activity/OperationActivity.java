@@ -902,21 +902,21 @@ public class OperationActivity extends BaseActivity {
         if (powerState.equals(LOW)) {
             lowSeekBar.setProgress(progressValue[power]);
             for (int i = 0; i < tv_lows.length; i++) {
-                tv_lows[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+                tv_lows[i].setTextSize(getResources().getDimension(R.dimen.sp16));
             }
             for (int i = 0; i < tv_highs.length; i++) {
-                tv_highs[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+                tv_highs[i].setTextSize(getResources().getDimension(R.dimen.sp16));
             }
-            tv_lows[power].setTextSize(getResources().getDimension(R.dimen.sp24));
+            tv_lows[power].setTextSize(getResources().getDimension(R.dimen.sp26));
         } else if (powerState.equals(HIGH)) {
             highSeekBar.setProgress(progressValue[power]);
             for (int i = 0; i < tv_lows.length; i++) {
-                tv_lows[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+                tv_lows[i].setTextSize(getResources().getDimension(R.dimen.sp16));
             }
             for (int i = 0; i < tv_highs.length; i++) {
-                tv_highs[i].setTextSize(getResources().getDimension(R.dimen.sp13));
+                tv_highs[i].setTextSize(getResources().getDimension(R.dimen.sp16));
             }
-            tv_highs[power].setTextSize(getResources().getDimension(R.dimen.sp24));
+            tv_highs[power].setTextSize(getResources().getDimension(R.dimen.sp26));
         }
     }
 
